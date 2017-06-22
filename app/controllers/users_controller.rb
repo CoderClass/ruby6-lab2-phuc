@@ -15,8 +15,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to users_path
     else
-      flash[:error] = "Error: #{@user.errors.full_messages.to_sentence}"
-      redirect_to new_user_path
+      flash.now[:error] = "Error: #{@user.errors.full_messages.to_sentence}"
+      render 'new'
     end
   end
 
